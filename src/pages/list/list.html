@@ -1,0 +1,27 @@
+<favorites></favorites>
+<ion-header>
+  <ion-navbar color="danger">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Watch List</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list no-lines class="results">
+    <ion-item-sliding *ngFor="let movie of movies">
+      <button ion-item (click)="moreInfo(movie)">
+        <ion-thumbnail item-start>
+          <img src="http://image.tmdb.org/t/p/w185{{movie.poster_path}}" *ngIf="movie.poster_path">
+          <img src="../../assets/img/no-cover.jpg" *ngIf="!movie.poster_path">
+        </ion-thumbnail>
+        <h2 *ngIf="movie.original_title">{{ movie.original_title }}</h2>
+        <p><span id="type">Movie</span> • {{movie.release_date}}</p>
+      </button>
+      <ion-item-options side="right">
+        <button color="secondary" ion-button (click)="watched(movie)">Watched</button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,37 @@
+<favorites></favorites>
+<ion-header>
+  <ion-navbar color="danger">
+    <ion-title>{{movie.Title}}</ion-title>
+    <ion-buttons end>
+      <p class="rating">
+        <ion-icon name="star"></ion-icon> {{movie.vote_average}}/<sub>10</sub>
+      </p>
+      </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <!-- TRAILER -->
+  <iframe id="trailer" width="100%" height="240px" [src]='getLink() | youtube' frame-border="0" allowfullscreen></iframe>
+  <!-- /TRAILER -->
+  <div class="basicInfo">
+      <span id="title">{{movie.original_title}}</span> <span id="year">({{releaseYear}})</span>
+      <ion-icon color="secondary" id="favorite" name="add" (click)="pushItem(movie)" *ngIf="existInArray"></ion-icon>
+  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4>
+        <img src="http://image.tmdb.org/t/p/w300/{{movie.poster_path}}" *ngIf="movie.poster_path">
+        <img src="../../assets/img/no-cover.jpg" *ngIf="!movie.poster_path">
+      </ion-col>
+      <ion-col col-8>
+        {{movie.overview}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      
+    </ion-row>
+  </ion-grid>
+</ion-content>

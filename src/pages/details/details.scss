@@ -1,0 +1,29 @@
+page-details {
+    #trailer {
+        border: 0;
+    }
+}
+.rating {
+    color: white;
+}
+.basicInfo {
+    margin-top: -4px;
+    background-color: rgb(116, 115, 115);
+    padding: 5px 10px;
+    font-weight: normal;
+    height: 45px;
+    #title {
+        font-size: 3rem;
+        color: white;
+    }
+    #year {
+        font-size: 1.5rem;
+        color: rgb(218, 218, 218);
+    }
+    #favorite {
+        font-size: 2.5em;
+        right: 0;
+        float: right;
+        height: 100%;
+    }
+}

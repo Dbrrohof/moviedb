@@ -1,0 +1,8 @@
+{
+  "name": "movies",
+  "app_id": "2eca469d",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

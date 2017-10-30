@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar (ionInput)="search($event)" (keyup.enter)="enterKey()" [showCancelButton]="shouldShowCancel" placeholder="Søg efter film" animated="true"></ion-searchbar>
+
+  <div *ngIf="noResults" class="noResults">
+    <ion-icon name="close"></ion-icon>
+    <h1>No results</h1>
+  </div>
+
+  <ion-list no-lines class="results">
+    <button ion-item *ngFor="let movie of movies" (click)="moreInfo(movie)">
+      <ion-thumbnail item-start>
+        <img src="http://image.tmdb.org/t/p/w185{{movie.poster_path}}" *ngIf="movie.poster_path">
+        <img src="../../assets/img/no-cover.jpg" *ngIf="!movie.poster_path">
+      </ion-thumbnail>
+      <h2 *ngIf="movie.original_title">{{ movie.original_title }}</h2>
+      <p><span id="type">Movie</span> • {{movie.release_date}}</p>
+    </button>
+  </ion-list>
+</ion-content>
